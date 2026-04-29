@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Karthick S. Manoharan</title>
+  <meta name="description" content="Projects and things I am building.">
+  <link rel="stylesheet" href="/css/design-system.css">
+  <style>
+    .page-wrapper {
+      flex: 1;
+      padding: var(--sp-16) var(--sp-6);
+      max-width: 680px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+      font-family: var(--font-sans);
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-bottom: var(--sp-12);
+      transition: color var(--transition);
+    }
+
+    .back-link:hover { color: var(--text); text-decoration: none; }
+
+    .page-title {
+      font-family: var(--font-serif);
+      font-size: var(--text-2xl);
+      font-weight: 500;
+      margin-bottom: var(--sp-12);
+    }
+
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-8);
+      list-style: none;
+    }
+
+    .project-item {}
+
+    .project-item .project-name {
+      font-family: var(--font-sans);
+      font-size: var(--text-base);
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: var(--sp-2);
+    }
+
+    .project-item .project-name a {
+      color: inherit;
+      text-decoration-color: var(--border);
+    }
+
+    .project-item .project-name a:hover {
+      text-decoration-color: var(--text);
+    }
+
+    .project-item .description {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: var(--sp-2);
+    }
+
+    .project-item .project-link {
+      font-size: var(--text-xs);
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    .project-item .project-link:hover {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .coming-soon {
+      margin-top: var(--sp-12);
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+    }
+
+    @media (max-width: 640px) {
+      .page-wrapper { padding: var(--sp-12) var(--sp-6); }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <a class="back-link" href="/">← Karthick S. Manoharan</a>
+
+    <h1 class="page-title">Projects</h1>
+
+    <ul class="project-list">
+      <li class="project-item">
+        <p class="project-name">
+          <a href="https://www.understandthis.company" target="_blank" rel="noopener">understandthis.company</a>
+        </p>
+        <p class="description">
+          A tool to help people see what they actually know and move from confusion to clarity.
+          Built on the belief that understanding — not just information — is what changes people.
+        </p>
+        <a class="project-link" href="https://www.understandthis.company" target="_blank" rel="noopener">
+          understandthis.company ↗
+        </a>
+      </li>
+    </ul>
+
+    <p class="coming-soon">More coming soon.</p>
+  </div>
+
+  <footer class="site-footer">
+    <p>Karthick S. Manoharan</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap');
+
+/* ── Tokens ──────────────────────────────────────────────── */
+:root {
+  --bg:            #F9F7F4;
+  --bg-secondary:  #F2EFE9;
+  --bg-card:       #EFECE6;
+  --text:          #1A1A1A;
+  --text-secondary:#5C5955;
+  --text-muted:    #9E9B96;
+  --border:        #E4E0DA;
+  --accent:        #1A1A1A;
+  --accent-hover:  #3D3A36;
+
+  --font-serif: 'Lora', Georgia, serif;
+  --font-sans:  'Inter', system-ui, -apple-system, sans-serif;
+
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  2rem;
+
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-6:  24px;
+  --sp-8:  32px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+
+  --radius: 4px;
+  --transition: 0.18s ease;
+}
+
+/* ── Reset ───────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ── Base Typography ─────────────────────────────────────── */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--text);
+}
+
+h1 { font-size: var(--text-3xl); }
+h2 { font-size: var(--text-2xl); margin-bottom: var(--sp-4); }
+h3 { font-size: var(--text-xl);  margin-bottom: var(--sp-3); }
+h4 { font-size: var(--text-lg);  margin-bottom: var(--sp-2); }
+
+p {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.75;
+  color: var(--text);
+  margin-bottom: var(--sp-4);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--border);
+  transition: text-decoration-color var(--transition);
+}
+a:hover { text-decoration-color: var(--accent); }
+
+/* ── Writing Post Layout ─────────────────────────────────── */
+.writing-body {
+  flex: 1;
+  max-width: 680px;
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--sp-16) var(--sp-6);
+}
+
+/* TL;DR block — sits at very top of a post */
+.tldr-box {
+  border-left: 3px solid var(--border);
+  padding: var(--sp-4) var(--sp-6);
+  margin-bottom: var(--sp-8);
+  background: var(--bg-secondary);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.tldr-box .tldr-label {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: var(--sp-2);
+}
+
+.tldr-box .tldr-for,
+.tldr-box .tldr-not-for {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--sp-1);
+}
+
+.tldr-box .tldr-for strong,
+.tldr-box .tldr-not-for strong {
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* Pause section — mid-post reflection moment */
+.pause-section {
+  margin: var(--sp-12) 0;
+  padding: var(--sp-6) var(--sp-8);
+  background: var(--bg-secondary);
+  border-radius: var(--radius);
+  position: relative;
+}
+
+.pause-section::before {
+  content: '⏸';
+  position: absolute;
+  top: var(--sp-4);
+  right: var(--sp-4);
+  font-size: var(--text-xs);
+  opacity: 0.3;
+}
+
+.pause-section .pause-label {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: var(--sp-3);
+}
+
+.pause-section p {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 0;
+}
+
+/* Ponder questions — end of post */
+.ponder-questions {
+  margin-top: var(--sp-12);
+  padding-top: var(--sp-8);
+  border-top: 1px solid var(--border);
+}
+
+.ponder-questions .ponder-label {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: var(--sp-4);
+}
+
+.ponder-questions ol {
+  padding-left: var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.ponder-questions li {
+  font-family: var(--font-serif);
+  font-size: var(--text-base);
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+/* Further reading section — end of post */
+.further-reading {
+  margin-top: var(--sp-12);
+  padding-top: var(--sp-8);
+  border-top: 1px solid var(--border);
+}
+
+/* Writing image */
+.writing-image {
+  margin: var(--sp-8) 0;
+}
+
+.writing-image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  display: block;
+}
+
+.writing-image figcaption {
+  margin-top: var(--sp-2);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  text-align: center;
+}
+
+/* Writing link card */
+.writing-link-card {
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--sp-4) var(--sp-6);
+  margin: var(--sp-6) 0;
+  text-decoration: none;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.writing-link-card:hover {
+  background: var(--bg-secondary);
+  border-color: var(--text-muted);
+  text-decoration: none;
+}
+
+.writing-link-card .link-card-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--sp-1);
+}
+
+.writing-link-card .link-card-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-base);
+  color: var(--text);
+  font-weight: 500;
+}
+
+.writing-link-card .link-card-url {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  margin-top: var(--sp-1);
+}
+
+/* ── Section label (reusable) ────────────────────────────── */
+.section-label {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: var(--sp-4);
+}
+
+/* ── Site Footer ─────────────────────────────────────────── */
+.site-footer {
+  padding: var(--sp-6);
+  border-top: 1px solid var(--border);
+  max-width: 680px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: auto;
+}
+
+.site-footer p {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  margin-bottom: 0;
+}
+
+/* ── Utility ─────────────────────────────────────────────── */
+.text-muted   { color: var(--text-muted); }
+.text-secondary { color: var(--text-secondary); }
+.font-serif   { font-family: var(--font-serif); }
+.font-sans    { font-family: var(--font-sans); }

@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System — karthick.page</title>
+  <link rel="stylesheet" href="/css/design-system.css">
+  <style>
+    /* ── Design system page chrome ─────────────────────────── */
+    body {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar nav */
+    .ds-sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 100vh;
+      overflow-y: auto;
+      border-right: 1px solid var(--border);
+      padding: var(--sp-8) var(--sp-6);
+      background: var(--bg);
+      z-index: 10;
+    }
+
+    .ds-sidebar-title {
+      font-family: var(--font-sans);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: var(--sp-4);
+    }
+
+    .ds-nav {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-1);
+    }
+
+    .ds-nav a {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: var(--sp-1) var(--sp-2);
+      border-radius: var(--radius);
+      transition: background var(--transition), color var(--transition);
+    }
+
+    .ds-nav a:hover {
+      background: var(--bg-secondary);
+      color: var(--text);
+    }
+
+    .ds-nav .divider {
+      height: 1px;
+      background: var(--border);
+      margin: var(--sp-3) 0;
+    }
+
+    /* Main content */
+    .ds-main {
+      margin-left: 200px;
+      flex: 1;
+      padding: var(--sp-12) var(--sp-12) var(--sp-16);
+      max-width: 860px;
+    }
+
+    .ds-header {
+      margin-bottom: var(--sp-12);
+      padding-bottom: var(--sp-8);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ds-header h1 {
+      font-family: var(--font-serif);
+      font-size: var(--text-2xl);
+      margin-bottom: var(--sp-2);
+    }
+
+    .ds-header p {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    .ds-header a {
+      color: var(--text-secondary);
+      font-size: var(--text-sm);
+    }
+
+    /* Section */
+    .ds-section {
+      margin-bottom: var(--sp-16);
+      scroll-margin-top: var(--sp-8);
+    }
+
+    .ds-section-title {
+      font-family: var(--font-sans);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: var(--sp-6);
+      padding-bottom: var(--sp-3);
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Component card — wraps each specimen */
+    .ds-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: var(--sp-6);
+    }
+
+    .ds-card-label {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      padding: var(--sp-2) var(--sp-4);
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ds-tag {
+      font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+      font-size: 11px;
+      color: var(--text-secondary);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 1px 6px;
+      white-space: nowrap;
+    }
+
+    .ds-tag.element { color: #7C6A52; }
+    .ds-tag.class   { color: #4A6B8A; }
+    .ds-tag.var     { color: #5C7A5C; }
+
+    .ds-card-body {
+      padding: var(--sp-8) var(--sp-8);
+      background: var(--bg);
+    }
+
+    .ds-card-body.dark {
+      background: #1A1A1A;
+    }
+
+    /* Inline class callout used inside specimens */
+    .ds-inline-tag {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10px;
+      color: var(--text-muted);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 0 5px;
+      vertical-align: middle;
+      margin-left: 6px;
+      white-space: nowrap;
+    }
+
+    /* ── Color palette ─────────────────────────────────────── */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: var(--sp-4);
+    }
+
+    .color-swatch {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .swatch-block {
+      height: 64px;
+    }
+
+    .swatch-info {
+      padding: var(--sp-2) var(--sp-3);
+      background: var(--bg);
+    }
+
+    .swatch-name {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10px;
+      color: var(--text-secondary);
+      display: block;
+    }
+
+    .swatch-value {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10px;
+      color: var(--text-muted);
+      display: block;
+    }
+
+    /* ── Type scale ────────────────────────────────────────── */
+    .type-row {
+      display: flex;
+      align-items: baseline;
+      gap: var(--sp-4);
+      padding: var(--sp-4) 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .type-row:last-child { border-bottom: none; }
+
+    .type-meta {
+      width: 120px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .type-meta .size-tag {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+
+    /* ── Spacing scale ─────────────────────────────────────── */
+    .spacing-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+    }
+
+    .spacing-row {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-4);
+    }
+
+    .spacing-bar-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .spacing-bar {
+      height: 8px;
+      background: var(--text-muted);
+      border-radius: 2px;
+      opacity: 0.4;
+    }
+
+    .spacing-label {
+      width: 80px;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10px;
+      color: var(--text-secondary);
+    }
+
+    .spacing-value {
+      width: 40px;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10px;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    /* ── Link + button row ─────────────────────────────────── */
+    .specimen-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--sp-6);
+      margin-bottom: var(--sp-4);
+    }
+
+    .specimen-row:last-child { margin-bottom: 0; }
+
+    .specimen-item {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+    }
+
+    .specimen-item .ds-tag { align-self: flex-start; }
+
+    /* ── Responsive ────────────────────────────────────────── */
+    @media (max-width: 700px) {
+      .ds-sidebar { display: none; }
+      .ds-main { margin-left: 0; padding: var(--sp-8) var(--sp-6); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <nav class="ds-sidebar">
+    <p class="ds-sidebar-title">Design System</p>
+    <ul class="ds-nav">
+      <li><a href="#colors">Colors</a></li>
+      <li><a href="#typography">Typography</a></li>
+      <li><a href="#spacing">Spacing</a></li>
+      <li class="divider"></li>
+      <li><a href="#section-label">Section Label</a></li>
+      <li><a href="#tldr-box">TL;DR Box</a></li>
+      <li><a href="#pause-section">Pause Section</a></li>
+      <li><a href="#ponder-questions">Ponder Questions</a></li>
+      <li><a href="#writing-image">Writing Image</a></li>
+      <li><a href="#writing-link-card">Link Card</a></li>
+      <li class="divider"></li>
+      <li><a href="#links">Links</a></li>
+      <li><a href="#kbd">Keyboard Hints</a></li>
+      <li><a href="#email-reveal">Email Reveal</a></li>
+      <li><a href="#nav-entries">Nav Entries</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main -->
+  <main class="ds-main">
+
+    <div class="ds-header">
+      <h1>Design System</h1>
+      <p>All tokens and components for karthick.page &nbsp;·&nbsp; <a href="/">← back to site</a></p>
+    </div>
+
+    <!-- ── Colors ─────────────────────────────────────────── -->
+    <section class="ds-section" id="colors">
+      <p class="ds-section-title">Colors</p>
+
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="swatch-block" style="background: #F9F7F4;border-bottom:1px solid #E4E0DA;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">--bg</span>
+            <span class="swatch-value">#F9F7F4</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-block" style="background: #F2EFE9;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">--bg-secondary</span>
+            <span class="swatch-value">#F2EFE9</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-block" style="background: #EFECE6;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">--bg-card</span>
+            <span class="swatch-value">#EFECE6</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-block" style="background: #1A1A1A;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">--text</span>
+            <span class="swatch-value">#1A1A1A</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-block" style="background: #5C5955;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">--text-secondary</span>
+            <span class="swatch-value">#5C5955</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-block" style="background: #9E9B96;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">--text-muted</span>
+            <span class="swatch-value">#9E9B96</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-block" style="background: #E4E0DA;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">--border</span>
+            <span class="swatch-value">#E4E0DA</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Typography ─────────────────────────────────────── -->
+    <section class="ds-section" id="typography">
+      <p class="ds-section-title">Typography</p>
+
+      <!-- Font families -->
+      <div class="ds-card" style="margin-bottom: var(--sp-6);">
+        <div class="ds-card-label">
+          <span class="ds-tag var">--font-serif</span>
+          <span class="ds-tag">Lora</span>
+          <span class="ds-tag">headings, writing body</span>
+        </div>
+        <div class="ds-card-body">
+          <p style="font-family: var(--font-serif); font-size: var(--text-xl); margin-bottom: var(--sp-2);">The quick brown fox — Lora Regular</p>
+          <p style="font-family: var(--font-serif); font-style: italic; font-size: var(--text-xl); margin-bottom: 0; color: var(--text-secondary);">The quick brown fox — Lora Italic</p>
+        </div>
+      </div>
+
+      <div class="ds-card" style="margin-bottom: var(--sp-8);">
+        <div class="ds-card-label">
+          <span class="ds-tag var">--font-sans</span>
+          <span class="ds-tag">Inter</span>
+          <span class="ds-tag">body, UI, labels</span>
+        </div>
+        <div class="ds-card-body">
+          <p style="font-family: var(--font-sans); font-weight: 300; font-size: var(--text-xl); margin-bottom: var(--sp-2);">The quick brown fox — Inter Light</p>
+          <p style="font-family: var(--font-sans); font-weight: 400; font-size: var(--text-xl); margin-bottom: var(--sp-2);">The quick brown fox — Inter Regular</p>
+          <p style="font-family: var(--font-sans); font-weight: 500; font-size: var(--text-xl); margin-bottom: 0;">The quick brown fox — Inter Medium</p>
+        </div>
+      </div>
+
+      <!-- Type scale -->
+      <div class="ds-card">
+        <div class="ds-card-label">
+          <span class="ds-tag var">type scale</span>
+        </div>
+        <div class="ds-card-body">
+
+          <div class="type-row">
+            <div class="type-meta">
+              <span class="ds-tag element">h1</span>
+              <span class="type-meta size-tag">--text-3xl · 2rem</span>
+            </div>
+            <h1 style="margin-bottom:0;">Heading One</h1>
+          </div>
+
+          <div class="type-row">
+            <div class="type-meta">
+              <span class="ds-tag element">h2</span>
+              <span class="type-meta size-tag">--text-2xl · 1.5rem</span>
+            </div>
+            <h2 style="margin-bottom:0;">Heading Two</h2>
+          </div>
+
+          <div class="type-row">
+            <div class="type-meta">
+              <span class="ds-tag element">h3</span>
+              <span class="type-meta size-tag">--text-xl · 1.25rem</span>
+            </div>
+            <h3 style="margin-bottom:0;">Heading Three</h3>
+          </div>
+
+          <div class="type-row">
+            <div class="type-meta">
+              <span class="ds-tag element">h4</span>
+              <span class="type-meta size-tag">--text-lg · 1.125rem</span>
+            </div>
+            <h4 style="margin-bottom:0;">Heading Four</h4>
+          </div>
+
+          <div class="type-row">
+            <div class="type-meta">
+              <span class="ds-tag element">p</span>
+              <span class="type-meta size-tag">--text-base · 1rem</span>
+            </div>
+            <p style="margin-bottom:0;">Body paragraph — Inter, 1rem, line-height 1.75</p>
+          </div>
+
+          <div class="type-row">
+            <div class="type-meta">
+              <span class="ds-tag var">--text-sm</span>
+              <span class="type-meta size-tag">0.875rem</span>
+            </div>
+            <p style="font-size: var(--text-sm); margin-bottom:0; color: var(--text-secondary);">Small text — nav entries, labels</p>
+          </div>
+
+          <div class="type-row">
+            <div class="type-meta">
+              <span class="ds-tag var">--text-xs</span>
+              <span class="type-meta size-tag">0.75rem</span>
+            </div>
+            <p style="font-size: var(--text-xs); margin-bottom:0; color: var(--text-muted);">Extra small — metadata, captions, keyboard hints</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Spacing ─────────────────────────────────────────── -->
+    <section class="ds-section" id="spacing">
+      <p class="ds-section-title">Spacing</p>
+
+      <div class="ds-card">
+        <div class="ds-card-label">
+          <span class="ds-tag var">spacing scale</span>
+          <span class="ds-tag">4px base</span>
+        </div>
+        <div class="ds-card-body">
+          <div class="spacing-list">
+            <div class="spacing-row">
+              <span class="spacing-label">--sp-1</span>
+              <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:4px;"></div></div>
+              <span class="spacing-value">4px</span>
+            </div>
+            <div class="spacing-row">
+              <span class="spacing-label">--sp-2</span>
+              <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:8px;"></div></div>
+              <span class="spacing-value">8px</span>
+            </div>
+            <div class="spacing-row">
+              <span class="spacing-label">--sp-3</span>
+              <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:12px;"></div></div>
+              <span class="spacing-value">12px</span>
+            </div>
+            <div class="spacing-row">
+              <span class="spacing-label">--sp-4</span>
+              <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:16px;"></div></div>
+              <span class="spacing-value">16px</span>
+            </div>
+            <div class="spacing-row">
+              <span class="spacing-label">--sp-6</span>
+              <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:24px;"></div></div>
+              <span class="spacing-value">24px</span>
+            </div>
+            <div class="spacing-row">
+              <span class="spacing-label">--sp-8</span>
+              <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:32px;"></div></div>
+              <span class="spacing-value">32px</span>
+            </div>
+            <div class="spacing-row">
+              <span class="spacing-label">--sp-12</span>
+              <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:48px;"></div></div>
+              <span class="spacing-value">48px</span>
+            </div>
+            <div class="spacing-row">
+              <span class="spacing-label">--sp-16</span>
+              <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:64px;"></div></div>
+              <span class="spacing-value">64px</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Section Label ──────────────────────────────────── -->
+    <section class="ds-section" id="section-label">
+      <p class="ds-section-title">Section Label</p>
+
+      <div class="ds-card">
+        <div class="ds-card-label">
+          <span class="ds-tag class">.section-label</span>
+          <span class="ds-tag">uppercase, muted, letter-spaced</span>
+        </div>
+        <div class="ds-card-body">
+          <p class="section-label">Currently Building</p>
+          <p class="section-label">Published</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TL;DR Box ──────────────────────────────────────── -->
+    <section class="ds-section" id="tldr-box">
+      <p class="ds-section-title">TL;DR Box</p>
+
+      <div class="ds-card">
+        <div class="ds-card-label">
+          <span class="ds-tag class">.tldr-box</span>
+          <span class="ds-tag">.tldr-label</span>
+          <span class="ds-tag">.tldr-for</span>
+          <span class="ds-tag">.tldr-not-for</span>
+        </div>
+        <div class="ds-card-body">
+          <div class="tldr-box">
+            <p class="tldr-label">TL;DR</p>
+            <p class="tldr-for"><strong>For:</strong> People who want to think more clearly about what they know and don't know.</p>
+            <p class="tldr-not-for"><strong>Not for:</strong> Those looking for a how-to guide or a quick fix.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Pause Section ─────────────────────────────────── -->
+    <section class="ds-section" id="pause-section">
+      <p class="ds-section-title">Pause Section</p>
+
+      <div class="ds-card">
+        <div class="ds-card-label">
+          <span class="ds-tag class">.pause-section</span>
+          <span class="ds-tag">.pause-label</span>
+          <span class="ds-tag">mid-post reflection block</span>
+        </div>
+        <div class="ds-card-body">
+          <div class="pause-section">
+            <p class="pause-label">Pause here</p>
+            <p>Think about a problem you solved last week. What was the one variable that, if you had changed it earlier, would have made everything simpler?</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Ponder Questions ───────────────────────────────── -->
+    <section class="ds-section" id="ponder-questions">
+      <p class="ds-section-title">Ponder Questions</p>
+
+      <div class="ds-card">
+        <div class="ds-card-label">
+          <span class="ds-tag class">.ponder-questions</span>
+          <span class="ds-tag">.ponder-label</span>
+          <span class="ds-tag">end-of-post questions</span>
+        </div>
+        <div class="ds-card-body">
+          <div class="ponder-questions">
+            <p class="ponder-label">Questions to sit with</p>
+            <ol>
+              <li>What is the one variable in your current situation that you have avoided changing?</li>
+              <li>If you removed the constraint you think is fixed — what would become possible?</li>
+              <li>What would it look like to move from your current state toward something else?</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Writing Image ─────────────────────────────────── -->
+    <section class="ds-section" id="writing-image">
+      <p class="ds-section-title">Writing Image</p>
+
+      <div class="ds-card">
+        <div class="ds-card-label">
+          <span class="ds-tag class">.writing-image</span>
+          <span class="ds-tag element">figcaption</span>
+          <span class="ds-tag">full-width with optional caption</span>
+        </div>
+        <div class="ds-card-body">
+          <figure class="writing-image">
+            <div style="width:100%; height:160px; background: var(--bg-card); border-radius: var(--radius); display:flex; align-items:center; justify-content:center;">
+              <span style="font-size: var(--text-sm); color: var(--text-muted);">image placeholder</span>
+            </div>
+            <figcaption>A short caption describing the image context or credit.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Writing Link Card ──────────────────────────────── -->
+    <section class="ds-section" id="writing-link-card">
+      <p class="ds-section-title">Writing Link Card</p>
+
+      <div class="ds-card">
+        <div class="ds-card-label">
+          <span class="ds-tag class">.writing-link-card</span>
+          <span class="ds-tag">.link-card-label</span>
+          <span class="ds-tag">.link-card-title</span>
+          <span class="ds-tag">.link-card-url</span>
+        </div>
+        <div class="ds-card-body">
+          <a class="writing-link-card" href="#" onclick="return false;">
+            <p class="link-card-label">Further reading</p>
+            <p class="link-card-title">The Art of Thinking Clearly — Rolf Dobelli</p>
+            <p class="link-card-url">goodreads.com/book/show/16248196</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Links ─────────────────────────────────────────── -->
+    <section class="ds-section" id="links">
+      <p class="ds-section-title">Links</p>
+
+      <div class="ds-card">
+        <div class="ds-card-label">
+          <span class="ds-tag element">a</span>
+          <span class="ds-tag">underline offset 3px, border color transitions</span>
+        </div>
+        <div class="ds-card-body">
+          <div class="specimen-row">
+            <div class="specimen-item">
+              <span class="ds-tag">default</span>
+              <a href="#" onclick="return false;">A regular hyperlink</a>
+            </div>
+            <div class="specimen-item">
+              <span class="ds-tag">in paragraph</span>
+              <p style="margin:0;">Text with an <a href="#" onclick="return false;">inline link</a> inside a sentence.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Keyboard Hints ─────────────────────────────────── -->
+    <section class="ds-section" id="kbd">
+      <p class="ds-section-title">Keyboard Hints</p>
+
+      <div class="ds-card">
+        <div class="ds-card-label">
+          <span class="ds-tag class">.shortcuts-hint</span>
+          <span class="ds-tag">.shortcut-line</span>
+          <span class="ds-tag class">.kbd</span>
+          <span class="ds-tag">desktop only (hover: hover)</span>
+        </div>
+        <div class="ds-card-body">
+          <div class="shortcuts-hint" style="display:flex;">
+            <span class="shortcut-line">
+              Press <kbd class="kbd">W</kbd> for writings
+            </span>
+            <span class="shortcut-line">
+              Press <kbd class="kbd">P</kbd> for projects
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Email Reveal ───────────────────────────────────── -->
+    <section class="ds-section" id="email-reveal">
+      <p class="ds-section-title">Email Reveal</p>
+
+      <div class="ds-card">
+        <div class="ds-card-label">
+          <span class="ds-tag">#email-btn</span>
+          <span class="ds-tag class">.email-revealed</span>
+          <span class="ds-tag class">.email-address</span>
+          <span class="ds-tag class">.copy-btn</span>
+          <span class="ds-tag">email assembled in JS, never in DOM</span>
+        </div>
+        <div class="ds-card-body">
+          <!-- Static preview of the revealed state since JS is on the main page -->
+          <p style="font-size: var(--text-sm); color: var(--text-muted); margin-bottom: var(--sp-4);">Before click:</p>
+          <ul class="nav-entries" style="margin-bottom: var(--sp-6);">
+            <li>
+              <span class="em-dash">—</span>
+              <button type="button" style="font-family: var(--font-sans); font-size: var(--text-sm); color: var(--text); background: none; border: none; cursor: pointer; padding: 0;">Email me</button>
+            </li>
+          </ul>
+
+          <p style="font-size: var(--text-sm); color: var(--text-muted); margin-bottom: var(--sp-4);">After click (revealed state):</p>
+          <span class="email-revealed">
+            <span class="em-dash">—</span>
+            <span class="email-address">hello@karthick.page</span>
+            <button class="copy-btn" type="button">copy</button>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Nav Entries ────────────────────────────────────── -->
+    <section class="ds-section" id="nav-entries">
+      <p class="ds-section-title">Nav Entries</p>
+
+      <div class="ds-card">
+        <div class="ds-card-label">
+          <span class="ds-tag class">.nav-entries</span>
+          <span class="ds-tag">.em-dash</span>
+          <span class="ds-tag">used on landing page</span>
+        </div>
+        <div class="ds-card-body">
+          <ul class="nav-entries">
+            <li>
+              <span class="em-dash">—</span>
+              <a href="#" onclick="return false;">Writings</a>
+            </li>
+            <li>
+              <span class="em-dash">—</span>
+              <a href="#" onclick="return false;">Projects</a>
+            </li>
+            <li>
+              <span class="em-dash">—</span>
+              <button type="button" style="font-family: var(--font-sans); font-size: var(--text-sm); color: var(--text); background: none; border: none; cursor: pointer; padding: 0;">Email me</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>

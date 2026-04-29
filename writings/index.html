@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Writings — Karthick S. Manoharan</title>
+  <meta name="description" content="Writing on product thinking, engineering, and purpose.">
+  <link rel="stylesheet" href="/css/design-system.css">
+  <style>
+    .page-wrapper {
+      flex: 1;
+      padding: var(--sp-16) var(--sp-6);
+      max-width: 680px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+      font-family: var(--font-sans);
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-bottom: var(--sp-12);
+      transition: color var(--transition);
+    }
+
+    .back-link:hover { color: var(--text); text-decoration: none; }
+
+    .page-title {
+      font-family: var(--font-serif);
+      font-size: var(--text-2xl);
+      font-weight: 500;
+      margin-bottom: var(--sp-12);
+    }
+
+    .writing-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-8);
+      list-style: none;
+    }
+
+    .writing-item {}
+
+    .writing-item a {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: var(--text-base);
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      margin-bottom: var(--sp-1);
+      transition: color var(--transition);
+    }
+
+    .writing-item a:hover { color: var(--text-secondary); }
+
+    .writing-item .meta {
+      font-size: var(--text-xs);
+      color: var(--text-muted);
+      margin-bottom: var(--sp-2);
+    }
+
+    .writing-item .teaser {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    .coming-soon {
+      margin-top: var(--sp-12);
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+    }
+
+    @media (max-width: 640px) {
+      .page-wrapper { padding: var(--sp-12) var(--sp-6); }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <a class="back-link" href="/">← Karthick S. Manoharan</a>
+
+    <h1 class="page-title">Writings</h1>
+
+    <ul class="writing-list">
+      <li class="writing-item">
+        <a href="/writings/developer-blind-spots/">Probable Blind Spots of a Solution-Focused Developer and the Pill for Transition</a>
+        <span class="meta">April 2026</span>
+        <p class="teaser">
+          From the birth of an idea to the trap of endless iteration — the blind spots that keep developers from shipping, and what actually breaks the cycle.
+        </p>
+      </li>
+    </ul>
+
+    <p class="coming-soon">More coming soon.</p>
+  </div>
+
+  <footer class="site-footer">
+    <p>Karthick S. Manoharan</p>
+  </footer>
+</body>
+</html>
