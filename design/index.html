@@ -313,6 +313,7 @@
       <li><a href="#ponder-questions">Ponder Questions</a></li>
       <li><a href="#writing-image">Writing Image</a></li>
       <li><a href="#writing-link-card">Link Card</a></li>
+      <li><a href="#preview-carousel">Preview Carousel</a></li>
       <li class="divider"></li>
       <li><a href="#links">Links</a></li>
       <li><a href="#kbd">Keyboard Hints</a></li>
@@ -660,6 +661,52 @@
       </div>
     </section>
 
+    <!-- ── Preview Carousel ─────────────────────────────── -->
+    <section class="ds-section" id="preview-carousel">
+      <p class="ds-section-title">Preview Carousel</p>
+
+      <div class="ds-card">
+        <div class="ds-card-label">
+          <span class="ds-tag class">.preview-carousel</span>
+          <span class="ds-tag">.carousel-track-wrap</span>
+          <span class="ds-tag">.carousel-slide</span>
+          <span class="ds-tag">.carousel-controls</span>
+        </div>
+        <div class="ds-card-body">
+          <div class="preview-carousel">
+            <div class="carousel-track-wrap">
+              <div class="carousel-track">
+                <div class="carousel-slide">
+                  <div class="carousel-slide-placeholder" style="background: var(--bg-card);">
+                    Screenshot 1 of 3
+                  </div>
+                </div>
+                <div class="carousel-slide">
+                  <div class="carousel-slide-placeholder" style="background: var(--bg-secondary);">
+                    Screenshot 2 of 3
+                  </div>
+                </div>
+                <div class="carousel-slide">
+                  <div class="carousel-slide-placeholder" style="background: var(--bg-card); filter: brightness(0.97);">
+                    Screenshot 3 of 3
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-controls">
+              <button class="carousel-btn carousel-prev" aria-label="Previous slide">←</button>
+              <div class="carousel-dots">
+                <button class="carousel-dot" aria-label="Slide 1"></button>
+                <button class="carousel-dot" aria-label="Slide 2"></button>
+                <button class="carousel-dot" aria-label="Slide 3"></button>
+              </div>
+              <button class="carousel-btn carousel-next" aria-label="Next slide">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ── Links ─────────────────────────────────────────── -->
     <section class="ds-section" id="links">
       <p class="ds-section-title">Links</p>
@@ -770,5 +817,7 @@
     </section>
 
   </main>
+
+  <script src="/js/carousel.js"></script>
 </body>
 </html>

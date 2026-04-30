@@ -46,20 +46,22 @@
     .project-item {}
 
     .project-item .project-name {
-      font-family: var(--font-sans);
-      font-size: var(--text-base);
+      font-family: var(--font-serif);
+      font-size: var(--text-xl);
       font-weight: 500;
       color: var(--text);
-      margin-bottom: var(--sp-2);
+      margin-bottom: var(--sp-3);
     }
 
     .project-item .project-name a {
       color: inherit;
-      text-decoration-color: var(--border);
+      text-decoration: none;
     }
 
     .project-item .project-name a:hover {
-      text-decoration-color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--border);
     }
 
     .project-item .description {
@@ -101,22 +103,83 @@
 
     <ul class="project-list">
       <li class="project-item">
-        <p class="project-name">
-          <a href="https://www.understandthis.company" target="_blank" rel="noopener">understandthis.company</a>
-        </p>
+        <h2 class="project-name">
+          <a href="https://understand-this-company.vercel.app/" target="_blank" rel="noopener">understandthis.company</a>
+        </h2>
+        <div class="preview-carousel">
+          <div class="carousel-track-wrap">
+            <div class="carousel-track">
+              <div class="carousel-slide">
+                <img src="/images/projects/utc/utc-1.jpg" alt="understandthis.company landing page — paste a company URL to get a plain-english breakdown" loading="lazy">
+              </div>
+              <div class="carousel-slide">
+                <img src="/images/projects/utc/utc-2.jpg" alt="understandthis.company report view showing industry analysis and key language for Spotify" loading="lazy">
+              </div>
+              <div class="carousel-slide">
+                <img src="/images/projects/utc/utc-3.jpg" alt="understandthis.company report view showing industry analysis and key language for Spotify" loading="lazy">
+              </div>
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn carousel-prev" aria-label="Previous screenshot">←</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot" aria-label="Screenshot 1"></button>
+              <button class="carousel-dot" aria-label="Screenshot 2"></button>
+            </div>
+            <button class="carousel-btn carousel-next" aria-label="Next screenshot">→</button>
+          </div>
+        </div>
         <p class="description">
           A tool to help people see what they actually know and move from confusion to clarity.
           Built on the belief that understanding — not just information — is what changes people.
         </p>
-        <a class="project-link" href="https://www.understandthis.company" target="_blank" rel="noopener">
+        <a class="project-link" href="https://understand-this-company.vercel.app/" target="_blank" rel="noopener">
           understandthis.company ↗
+        </a>
+        </a>
+      </li>
+      <li class="project-item">
+        <h2 class="project-name">
+          <a href="https://www.mindseye.love" target="_blank" rel="noopener">MindsEye.love</a>
+        </h2>
+        <div class="preview-carousel">
+          <div class="carousel-track-wrap">
+            <div class="carousel-track">
+              <div class="carousel-slide">
+                <img src="/images/projects/minds-eye/minds-eye-1.jpg" alt="Minds eye preview one" loading="lazy">
+              </div>
+              <div class="carousel-slide">
+                <img src="/images/projects/minds-eye/minds-eye-2.jpg" alt="Minds eye preview two" loading="lazy">
+              </div>
+              <div class="carousel-slide">
+                <img src="/images/projects/minds-eye/minds-eye-3.jpg" alt="Minds eye preview three" loading="lazy">
+              </div>
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn carousel-prev" aria-label="Previous screenshot">←</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot" aria-label="Screenshot 1"></button>
+              <button class="carousel-dot" aria-label="Screenshot 2"></button>
+            </div>
+            <button class="carousel-btn carousel-next" aria-label="Next screenshot">→</button>
+          </div>
+        </div>
+        <p class="description">
+          A Chrome extension that brings the marginalia tradition to the web
+        </p>
+        <a class="project-link" href="https://www.mindseye.love" target="_blank" rel="noopener">
+          MindsEye.love ↗
+        </a>
+        <a class="project-link" href="https://github.com/karthick-manoharan/MindsEye.love" target="_blank" rel="noopener">
+          GitHub ↗
+        </a>
         </a>
       </li>
     </ul>
-
-    <p class="coming-soon">More coming soon.</p>
   </div>
 
+  <script src="/js/carousel.js"></script>
   <footer class="site-footer">
     <p>Karthick S. Manoharan</p>
   </footer>
