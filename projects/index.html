@@ -40,10 +40,16 @@
       display: flex;
       flex-direction: column;
       gap: var(--sp-8);
-      list-style: none;
+      list-style: decimal;
+      padding-left: var(--sp-6);
     }
 
-    .project-item {}
+    .project-item::marker {
+      font-family: var(--font-serif);
+      font-size: var(--text-xl);
+      font-weight: 500;
+      color: var(--text-muted);
+    }
 
     .project-item .project-name {
       font-family: var(--font-serif);
@@ -101,11 +107,18 @@
 
     <h1 class="page-title">Projects</h1>
 
-    <ul class="project-list">
+    <ol class="project-list">
       <li class="project-item">
         <h2 class="project-name">
           <a href="https://understand-this-company.vercel.app/" target="_blank" rel="noopener">understandthis.company</a>
         </h2>
+        <p class="description">
+          A tool to help people see what they actually know and move from confusion to clarity.
+          Built on the belief that understanding — not just information — is what changes people.
+        </p>
+        <a class="project-link" href="https://understand-this-company.vercel.app/" target="_blank" rel="noopener">
+          understandthis.company ↗
+        </a>
         <div class="preview-carousel">
           <div class="carousel-track-wrap">
             <div class="carousel-track">
@@ -129,19 +142,20 @@
             <button class="carousel-btn carousel-next" aria-label="Next screenshot">→</button>
           </div>
         </div>
-        <p class="description">
-          A tool to help people see what they actually know and move from confusion to clarity.
-          Built on the belief that understanding — not just information — is what changes people.
-        </p>
-        <a class="project-link" href="https://understand-this-company.vercel.app/" target="_blank" rel="noopener">
-          understandthis.company ↗
-        </a>
-        </a>
       </li>
       <li class="project-item">
         <h2 class="project-name">
           <a href="https://www.mindseye.love" target="_blank" rel="noopener">MindsEye.love</a>
         </h2>
+        <p class="description">
+          A Chrome extension that brings the marginalia tradition to the web
+        </p>
+        <a class="project-link" href="https://www.mindseye.love" target="_blank" rel="noopener">
+          MindsEye.love ↗
+        </a>
+        <a class="project-link" href="https://github.com/karthick-manoharan/MindsEye.love" target="_blank" rel="noopener">
+          GitHub ↗
+        </a>
         <div class="preview-carousel">
           <div class="carousel-track-wrap">
             <div class="carousel-track">
@@ -165,21 +179,17 @@
             <button class="carousel-btn carousel-next" aria-label="Next screenshot">→</button>
           </div>
         </div>
-        <p class="description">
-          A Chrome extension that brings the marginalia tradition to the web
-        </p>
-        <a class="project-link" href="https://www.mindseye.love" target="_blank" rel="noopener">
-          MindsEye.love ↗
-        </a>
-        <a class="project-link" href="https://github.com/karthick-manoharan/MindsEye.love" target="_blank" rel="noopener">
-          GitHub ↗
-        </a>
-        </a>
       </li>
       <li class="project-item">
         <h2 class="project-name">
           <a href="https://github.com/karthick-manoharan/WordPeek" target="_blank" rel="noopener">WordPeek</a>
         </h2>
+        <p class="description">
+          Look up word meanings as you read, without leaving the page.
+        </p>
+        <a class="project-link" href="https://github.com/karthick-manoharan/WordPeek" target="_blank" rel="noopener">
+          GitHub ↗
+        </a>
         <div class="preview-carousel">
           <div class="carousel-track-wrap">
             <div class="carousel-track">
@@ -200,11 +210,8 @@
             <button class="carousel-btn carousel-next" aria-label="Next screenshot">→</button>
           </div>
         </div>
-        <a class="project-link" href="https://github.com/karthick-manoharan/WordPeek" target="_blank" rel="noopener">
-          GitHub ↗
-        </a>
       </li>
-    </ul>
+    </ol>
   </div>
 
   <script src="/js/carousel.js"></script>
